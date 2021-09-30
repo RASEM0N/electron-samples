@@ -1,0 +1,3 @@
+// https://www.electronjs.org/docs/latest/
+
+Typescript + webpack --- https://www.electronforge.io/templates/typescript-+-webpack-template

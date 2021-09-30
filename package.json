@@ -1,0 +1,41 @@
+{
+    "name": "electron",
+    "version": "0.1.0",
+    "author": {
+        "name": "RASEM0n"
+    },
+    "scripts": {
+        "start": "bozon start",
+        "dev": "cross-env NODE_ENV=development bozon start --reload",
+        "debug:main": "cross-env NODE_ENV=development bozon start --inspect-brk=8001",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
+        "format": "prettier --write \"src/**/*.(ts|tsx|js|jsx)\"",
+        "husky:prepare": "husky install"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.32.0",
+        "@typescript-eslint/parser": "^4.32.0",
+        "bozon": "1.2.6",
+        "cross-env": "^7.0.3",
+        "electron": "^15.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "husky": "^7.0.2",
+        "prettier": "^2.4.1",
+        "spectron": "15.0.0",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.4.3"
+    },
+    "build": {
+        "appId": "com.electron.g",
+        "win": {
+            "publish": null
+        },
+        "mac": {
+            "publish": null,
+            "category": "your.app.category.type"
+        }
+    }
+}

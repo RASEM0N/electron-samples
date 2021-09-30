@@ -1,0 +1,13 @@
+node_modules
+config
+dist
+builds
+
+yarn.lock
+package-lock.json
+package.json
+jest.config.js
+.prettierrc.js
+jest.setup.js
+
+.idea
