@@ -22,12 +22,13 @@ const config = {
 
 module.exports = {
     renderer: {
-        entry: './src/renderer/scripts/index.ts',
+        entry: './src/renderer/index.ts',
         ...config,
         plugins: [
             new CopyPlugin({
                 patterns: [
-                    { from: 'src/renderer/images', to: 'images' },
+                    { from: 'src/renderer/assets', to: 'assets' },
+                    { from: 'src/renderer/windows', to: 'windows' },
                     // ...
                 ],
             }),

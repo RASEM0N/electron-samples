@@ -11,9 +11,14 @@
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "format": "prettier --write \"src/**/*.(ts|tsx|js|jsx)\"",
-        "husky:prepare": "husky install"
+        "husky:prepare": "husky install",
+        "electron:start": "electron ./builds/development/main/index.js"
     },
     "devDependencies": {
+        "@babel/core": "^7.15.5",
+        "@babel/node": "^7.15.4",
+        "@types/imagemin": "^8.0.0",
+        "@types/imagemin-mozjpeg": "^8.0.1",
         "@typescript-eslint/eslint-plugin": "^4.32.0",
         "@typescript-eslint/parser": "^4.32.0",
         "bozon": "1.2.6",
@@ -38,5 +43,12 @@
             "publish": null,
             "category": "your.app.category.type"
         }
+    },
+    "dependencies": {
+        "electron-log": "^4.4.1",
+        "imagemin": "^8.0.1",
+        "imagemin-mozjpeg": "^9.0.0",
+        "imagemin-pngquant": "^9.0.2",
+        "slash": "^4.0.0"
     }
 }

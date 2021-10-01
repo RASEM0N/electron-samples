@@ -9,13 +9,13 @@ export const createMainWindow = (): BrowserWindow => {
         height: 800,
         icon: path.join(__dirname, '../resources/icon_256x256.png'),
         webPreferences: {
-            preload: path.join(app.getAppPath(), 'preload', 'index.js'),
+            preload: path.join(app.getAppPath(), '../preload', 'index.js'),
             devTools: IS_DEV,
         },
         backgroundColor: 'white',
     })
 
-    win.loadFile('renderer/index.html').catch((e) => {
+    win.loadFile('../renderer/index.html').catch((e) => {
         console.error(`ERROR: ${e.message}`)
     })
 
@@ -39,7 +39,7 @@ export const createAboutWindow = (): BrowserWindow => {
         backgroundColor: 'white',
     })
 
-    aboutWin.loadFile('renderer/about.html').catch((e) => {
+    aboutWin.loadFile('../renderer/windows/about/index.html').catch((e) => {
         console.error(`ERROR: ${e.message}`)
     })
 
