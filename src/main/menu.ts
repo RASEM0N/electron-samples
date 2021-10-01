@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { app, Menu, MenuItemConstructorOptions } from 'electron'
 import { IS_MAC, IS_DEV } from './constants'
+import { createAboutWindow } from './windows'
 
 export const menuTemplate = (): Array<MenuItemConstructorOptions> => {
     const template: Array<MenuItemConstructorOptions> = []
@@ -12,7 +13,7 @@ export const menuTemplate = (): Array<MenuItemConstructorOptions> => {
                 {
                     label: 'About',
                     click: () => {
-                        // ...
+                        createAboutWindow()
                     },
                 },
             ],
@@ -39,7 +40,7 @@ export const menuTemplate = (): Array<MenuItemConstructorOptions> => {
                 {
                     label: 'About',
                     click: () => {
-                        // ...
+                        createAboutWindow()
                     },
                 },
             ],
