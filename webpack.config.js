@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const CopyPlugin = require('copy-webpack-plugin')
 const IS_DEV = process.env.NODE_ENV === 'development'
 
 const rules = [
@@ -22,6 +24,14 @@ module.exports = {
     renderer: {
         entry: './src/renderer/scripts/index.ts',
         ...config,
+        plugins: [
+            new CopyPlugin({
+                patterns: [
+                    { from: 'src/renderer/images', to: 'images' },
+                    // ...
+                ],
+            }),
+        ],
     },
     preload: {
         entry: './src/preload/index.js',
@@ -30,5 +40,13 @@ module.exports = {
     main: {
         entry: './src/main/index.ts',
         ...config,
+        plugins: [
+            new CopyPlugin({
+                patterns: [
+                    { from: 'src/resources', to: '../resources' },
+                    // ...
+                ],
+            }),
+        ],
     },
 }
