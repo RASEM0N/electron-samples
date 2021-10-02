@@ -17,12 +17,22 @@ app.on('ready', () => {
     appTray = new SystemLogoTry(path.join(__dirname, '../resources/icon.png'), mainWindow)
 
     mainWindow.on('close', (e) => {
-        // if (!isQuiting) {
-        //     e.preventDefault()
-        //     mainWindow.hide()
-        //     e.returnValue = true
-        // }
-        app.quit()
+        const answer = dialog.showMessageBoxSync(null, {
+            message: 'Свернуть в трей',
+            buttons: ['закрыть', 'свернуть'],
+        })
+
+        if (!isQuiting) {
+            if (answer === 0) {
+                app.quit()
+            }
+
+            if (answer === 1) {
+                e.preventDefault()
+                mainWindow.hide()
+                e.returnValue = true
+            }
+        }
     })
 
     // open Directory, возвращает путь
