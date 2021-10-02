@@ -1,6 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-#yarn husky add .husky/pre-commit "npm test"
 
 yarn lint:fix; yarn format

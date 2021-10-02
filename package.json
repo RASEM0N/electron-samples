@@ -1,17 +1,18 @@
 {
     "name": "electron",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "main": "src/main/index.ts",
     "author": {
         "name": "RASEM0n"
     },
     "scripts": {
         "start": "bozon start",
         "dev": "cross-env NODE_ENV=development bozon start --reload",
-        "debug:main": "cross-env NODE_ENV=development bozon start --inspect-brk=8001",
+        "debug": "cross-env NODE_ENV=development bozon start --inspect-brk=8001",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
         "format": "prettier --write \"src/**/*.(ts|tsx|js|jsx)\"",
-        "husky:prepare": "husky install"
+        "husky": "husky install"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.32.0",

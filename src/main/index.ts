@@ -1,32 +1,25 @@
-import * as path from 'path'
 import { app, BrowserWindow } from 'electron'
+import { createMainWindow } from './windows'
+import { IS_DEV, IS_MAC } from './constants'
 
-const createWindow = () => {
-    let win: BrowserWindow = new BrowserWindow({
-        title: 'Application',
-        width: 900,
-        height: 800,
-        icon: path.join(__dirname, '../resources/icon_256x256.png'),
-        webPreferences: {
-            preload: path.join(app.getAppPath(), 'preload', 'index.js'),
-        },
-    })
-
-    win.loadFile('renderer/index.html').catch((e) => {
-        console.error(`ERROR: ${e.message}`)
-    })
-
-    win.on('closed', () => {
-        win = null
-    })
-}
+let mainMenu: BrowserWindow
 
 app.on('ready', () => {
-    createWindow()
+    mainMenu = createMainWindow()
+
+    if (IS_DEV) {
+        mainMenu.webContents.openDevTools()
+    }
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
+    if (!IS_MAC) {
         app.quit()
+    }
+})
+
+app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createMainWindow()
     }
 })
