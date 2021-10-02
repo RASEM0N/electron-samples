@@ -3,6 +3,7 @@ import * as path from 'path'
 import { IS_DEV } from './constants'
 
 export const createMainWindow = (): BrowserWindow => {
+    // eslint-disable-next-line prefer-const
     let win: BrowserWindow = new BrowserWindow({
         title: 'Application',
         width: IS_DEV ? 800 : 500,
@@ -14,6 +15,10 @@ export const createMainWindow = (): BrowserWindow => {
             preload: path.join(app.getAppPath(), 'preload', 'index.js'),
             devTools: IS_DEV,
         },
+    })
+
+    win.on('minimize', () => {
+        win.hide()
     })
 
     win.loadFile('renderer/index.html').catch((e) => {

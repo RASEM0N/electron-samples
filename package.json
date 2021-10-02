@@ -6,7 +6,7 @@
         "name": "RASEM0n"
     },
     "scripts": {
-        "start": "bozon start",
+        "start": "cross-env MODE=prerelease bozon start",
         "dev": "cross-env NODE_ENV=development bozon start --reload",
         "debug": "cross-env NODE_ENV=development bozon start --inspect-brk=8001",
         "lint": "eslint",

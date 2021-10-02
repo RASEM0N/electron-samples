@@ -1,12 +1,15 @@
 // https://electronjs.org/docs/tutorial/security
-import { contextBridge } from 'electron'
-import { cpu, mem, os } from 'node-os-utils'
+import { contextBridge, ipcRenderer } from 'electron'
 import { join } from 'path'
 
-contextBridge.exposeInMainWorld('osApi', {
-    mem,
-    cpu,
-    os,
+contextBridge.exposeInMainWorld('osInfo', {
+    getStaticData: () => {
+        return ipcRenderer.invoke('os:static')
+    },
+
+    getDynamicData: () => {
+        return ipcRenderer.invoke('os:dynamic')
+    },
 })
 
 contextBridge.exposeInMainWorld('liteNodeApi', {
